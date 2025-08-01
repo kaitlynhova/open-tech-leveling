@@ -1,0 +1,216 @@
+/* Variables  */
+:root {
+  --onBackground: #000;
+  --background: #fff;
+  --area-padding: 64px;
+  --area-padding-mobile: 32px;
+
+  --github-button-color: #94d2bd;
+
+  --rainbow1: #ae2012;
+  --rainbow2: #bb3e04;
+  --rainbow3: #ca6702;
+  --rainbow4: #ee9b00;
+  --rainbow5: #e9d9a6;
+  --rainbow6: #94d2bd;
+  --rainbow7: #0a9396;
+  --rainbow8: #025f72;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --onBackground: #fff;
+    --background: #000;
+    --area-padding: 64px;
+    --area-padding-mobile: 32px;
+
+    --github-button-color: #94d2bd;
+
+    --rainbow1: #ae2012;
+    --rainbow2: #bb3e04;
+    --rainbow3: #ca6702;
+    --rainbow4: #ee9b00;
+    --rainbow5: #e9d9a6;
+    --rainbow6: #94d2bd;
+    --rainbow7: #0a9396;
+    --rainbow8: #025f72;
+  }
+}
+
+a {
+  color: var(--onBackground);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--onBackground);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Domine", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+p {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+
+.no-top-padding {
+  padding-top: 0;
+}
+
+/* Top Nav */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links > a {
+  font-size: 1.2rem;
+}
+
+.github-button {
+  background-color: var(--github-button-color);
+  color: var(--onBackground);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* main */
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+
+header > h1 {
+  font-size: 8vw;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+/* Rainbow */
+.rainbow-area {
+  display: flex;
+  flex-direction: column;
+  flex-direction: column-reverse;
+}
+
+.rainbow {
+  width: 100%;
+  height: 18px;
+}
+
+.rainbow1 {
+  background-color: var(--rainbow1);
+  width: 30%;
+}
+.rainbow2 {
+  background-color: var(--rainbow2);
+  width: 40%;
+}
+.rainbow3 {
+  background-color: var(--rainbow3);
+  width: 50%;
+}
+.rainbow4 {
+  background-color: var(--rainbow4);
+  width: 60%;
+}
+.rainbow5 {
+  background-color: var(--rainbow5);
+  width: 70%;
+}
+.rainbow6 {
+  background-color: var(--rainbow6);
+  width: 80%;
+}
+.rainbow7 {
+  background-color: var(--rainbow7);
+  width: 90%;
+}
+.rainbow8 {
+  background-color: var(--rainbow8);
+}
+
+/* middle content */
+.middle-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--area-padding);
+  padding-bottom: var(--area-padding);
+  gap: 32px;
+}
+
+.middle-content > p {
+  font-size: 2rem;
+}
+
+.middle-content h2 {
+  font-size: 3rem;
+  margin: 0;
+  font-family: "Domine", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Screens */
+
+@media (min-width: 768px) {
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: block;
+  }
+  main,
+  .area-padding {
+    padding: var(--area-padding);
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+
+  main,
+  .area-padding {
+    padding: var(--area-padding-mobile);
+  }
+
+  .middle-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
