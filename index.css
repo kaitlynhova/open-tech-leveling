@@ -480,3 +480,144 @@ footer > a {
     filter: invert(1); /*yeah I know, fine for now */
   }
 }
+
+/* ==========================================================================
+   Cookie Banner
+   ========================================================================== */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--background);
+  border-top: 2px solid var(--rainbow6);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-banner.show {
+  transform: translateY(0);
+}
+
+.cookie-content {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.cookie-text p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--onBackground);
+  opacity: 0.9;
+}
+
+.cookie-text a {
+  color: var(--rainbow7);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.cookie-text a:hover {
+  color: var(--rainbow8);
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-primary, "Plus Jakarta Sans", sans-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cookie-btn-primary {
+  background: linear-gradient(135deg, var(--rainbow7), var(--rainbow8));
+  color: var(--onRainbow);
+}
+
+.cookie-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(10, 147, 150, 0.3);
+}
+
+.cookie-btn-secondary {
+  background: transparent;
+  color: var(--onBackground);
+  border: 1px solid var(--tableBorder);
+}
+
+.cookie-btn-secondary:hover {
+  background: var(--tableHover);
+  border-color: var(--rainbow6);
+}
+
+/* Responsive Cookie Banner */
+@media (max-width: 768px) {
+  .cookie-banner {
+    padding: 16px;
+  }
+
+  .cookie-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .cookie-text h3 {
+    font-size: 1.1rem;
+  }
+
+  .cookie-text p {
+    font-size: 0.9rem;
+  }
+
+  .cookie-actions {
+    justify-content: center;
+  }
+
+  .cookie-btn {
+    flex: 1;
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cookie-banner {
+    padding: 12px;
+  }
+
+  .cookie-text h3 {
+    font-size: 1rem;
+  }
+
+  .cookie-text p {
+    font-size: 0.85rem;
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cookie-btn {
+    max-width: none;
+    width: 100%;
+  }
+}

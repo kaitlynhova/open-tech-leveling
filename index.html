@@ -379,5 +379,86 @@
         <p>Powered by Hova Labs</p>
       </a>
     </footer>
+
+    <!-- GDPR Cookies Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+      <div class="cookie-content">
+        <div class="cookie-text">
+          <p>
+            This website uses Google Analytics to understand how visitors
+            interact with our content. This helps us improve our site and
+            provide better information. We'll never sell your data.
+          </p>
+        </div>
+        <div class="cookie-actions">
+          <button id="accept-cookies" class="cookie-btn cookie-btn-primary">
+            Accept Analytics
+          </button>
+          <button id="decline-cookies" class="cookie-btn cookie-btn-secondary">
+            Decline
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Analytics (only loads if cookies are accepted) -->
+    <script>
+      // Check if user has already made a choice
+      const cookieConsent = localStorage.getItem("cookieConsent");
+      const cookieBanner = document.getElementById("cookie-banner");
+
+      if (cookieConsent === "accepted") {
+        // Load Google Analytics
+        loadGoogleAnalytics();
+        cookieBanner.style.display = "none";
+      } else if (cookieConsent === "declined") {
+        // Hide banner if declined
+        cookieBanner.style.display = "none";
+      } else {
+        // Show banner if no choice has been made
+        setTimeout(() => {
+          cookieBanner.classList.add("show");
+        }, 1000); // Show after 1 second
+      }
+
+      // Cookie banner functionality
+      document
+        .getElementById("accept-cookies")
+        .addEventListener("click", function () {
+          localStorage.setItem("cookieConsent", "accepted");
+          hideCookieBanner();
+          loadGoogleAnalytics();
+        });
+
+      document
+        .getElementById("decline-cookies")
+        .addEventListener("click", function () {
+          localStorage.setItem("cookieConsent", "declined");
+          hideCookieBanner();
+        });
+
+      function hideCookieBanner() {
+        cookieBanner.classList.remove("show");
+        setTimeout(() => {
+          cookieBanner.style.display = "none";
+        }, 300); // Wait for animation to complete
+      }
+
+      function loadGoogleAnalytics() {
+        // Google Analytics 4 (GA4) tracking code
+        // Replace 'G-XXXXXXXXXX' with your actual Google Analytics measurement ID
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-XXXXXXXXXX");
+      }
+    </script>
   </body>
 </html>
