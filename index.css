@@ -36,6 +36,10 @@
     --rainbow7: #0a9396;
     --rainbow8: #025f72;
   }
+
+  img, .rainbow, .levels-table thead {
+    filter: invert(1);
+  }
 }
 
 a {
@@ -219,7 +223,7 @@ header > h1 {
     line-height: 3rem;
   }
   .middle-content > p {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
