@@ -384,7 +384,7 @@ header > h1 {
   }
 
   .levels-table tbody th:first-child {
-    background-color: rgba(148, 210, 189, 0.15);
+    background-color: #EFF8F5;
     z-index: 10;
   }
 }
