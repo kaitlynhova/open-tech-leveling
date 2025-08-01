@@ -383,14 +383,13 @@ header > h1 {
 }
 
 /* Footer */
-footer > .footer-content {
+footer {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
 }
 
-footer > .footer-content > a {
+footer > a {
   width: fit-content;
   display: flex;
   justify-content: center;
