@@ -213,4 +213,141 @@ header > h1 {
     flex-direction: column;
     align-items: center;
   }
+
+  .middle-content h2 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  .middle-content > p {
+    font-size: 2rem;
+  }
+}
+
+/* Table Styles */
+.levels-table-section {
+  margin-top: 48px;
+  overflow: scroll;
+}
+
+.levels-table-section h3 {
+  font-family: "Domine", serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  text-align: center;
+  color: var(--onBackground);
+}
+
+.levels-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: var(--background);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.levels-table caption {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.levels-table thead {
+  background: linear-gradient(135deg, var(--rainbow8), var(--rainbow7));
+}
+
+.levels-table th,
+.levels-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid rgba(148, 210, 189, 0.2);
+}
+
+.levels-table th {
+  font-weight: 600;
+  color: white;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.levels-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.levels-table tbody tr:hover {
+  background-color: rgba(148, 210, 189, 0.1);
+}
+
+.levels-table tbody tr:nth-child(even) {
+  background-color: rgba(148, 210, 189, 0.05);
+}
+
+.levels-table tbody th {
+  font-weight: 700;
+  color: var(--rainbow7);
+  background-color: rgba(148, 210, 189, 0.15);
+  font-size: 1.1rem;
+}
+
+.levels-table tbody td {
+  color: var(--onBackground);
+  line-height: 1.5;
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .levels-table-section h3 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+
+  .levels-table th,
+  .levels-table td {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  .levels-table {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .levels-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .levels-table th,
+  .levels-table td {
+    padding: 10px 12px;
+    min-width: 120px;
+  }
+}
+
+/* Footer */
+footer > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
 }
