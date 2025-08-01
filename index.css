@@ -226,7 +226,35 @@ header > h1 {
 /* Table Styles */
 .levels-table-section {
   margin-top: 48px;
-  overflow: scroll;
+  overflow-x: auto;
+  position: relative;
+}
+
+/* Sticky first column */
+.levels-table th:first-child,
+.levels-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background-color: var(--background);
+}
+
+.levels-table thead th:first-child {
+  background: linear-gradient(135deg, var(--rainbow8), var(--rainbow7)) !important;
+  z-index: 11;
+}
+
+.levels-table tbody th:first-child {
+  background-color: #EFF8F5;
+  z-index: 10;
+}
+
+.levels-table tbody tr:nth-child(even) td:first-child {
+  background-color: var(--background) !important;
+}
+
+.levels-table tbody tr:hover td:first-child {
+  background-color: var(--background) !important;
 }
 
 .levels-table-section h3 {
@@ -244,7 +272,6 @@ header > h1 {
   margin: 0 auto;
   background-color: var(--background);
   border-radius: 12px;
-  overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
@@ -330,16 +357,35 @@ header > h1 {
 
 @media (max-width: 600px) {
   .levels-table {
-    display: block;
+    display: table;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+    width: 100%;
   }
 
   .levels-table th,
   .levels-table td {
     padding: 10px 12px;
     min-width: 120px;
+  }
+
+  .levels-table th:first-child,
+  .levels-table td:first-child {
+    min-width: 80px;
+    position: sticky;
+    left: 0;
+    z-index: 10;
+  }
+
+  .levels-table thead th:first-child {
+    background: linear-gradient(135deg, var(--rainbow8), var(--rainbow7));
+    z-index: 11;
+  }
+
+  .levels-table tbody th:first-child {
+    background-color: rgba(148, 210, 189, 0.15);
+    z-index: 10;
   }
 }
 
