@@ -1,12 +1,23 @@
-/* Variables  */
+/* ==========================================================================
+   CSS Variables & Base Styles
+   ========================================================================== */
+
 :root {
+  /* Colors */
   --onBackground: #000;
   --background: #fff;
-  --area-padding: 64px;
-  --area-padding-mobile: 32px;
-
   --github-button-color: #94d2bd;
+  --onGithubButton: #000;
 
+  /* Table Colors */
+  --tableBody: #eff8f5;
+  --tableHeader: #0d7478;
+  --onTableHeader: #0d7478;
+  --tableBorder: rgba(148, 210, 189, 0.2);
+  --tableHover: rgba(148, 210, 189, 0.1);
+  --tableRowEven: rgba(148, 210, 189, 0.05);
+
+  /* Rainbow Colors */
   --rainbow1: #ae2012;
   --rainbow2: #bb3e04;
   --rainbow3: #ca6702;
@@ -15,12 +26,19 @@
   --rainbow6: #94d2bd;
   --rainbow7: #0a9396;
   --rainbow8: #025f72;
+  --onRainbow: #fff;
+
+  /* Spacing */
+  --area-padding: 64px;
+  --area-padding-mobile: 32px;
 }
 
-a {
-  color: var(--onBackground);
-  text-decoration: none;
-  font-weight: 500;
+/* ==========================================================================
+   Base Elements
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -30,6 +48,12 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+a {
+  color: var(--onBackground);
+  text-decoration: none;
+  font-weight: 500;
 }
 
 h1 {
@@ -52,11 +76,28 @@ p {
   line-height: 3rem;
 }
 
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
 .no-top-padding {
   padding-top: 0;
 }
 
-/* Top Nav */
+/*screen reader only*/
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -77,27 +118,32 @@ p {
 
 .github-button {
   background-color: var(--github-button-color);
-  color: #000;
+  color: var(--onGithubButton);
   padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: 4px;
 }
 
-/* main */
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
+
 main {
   display: flex;
   flex-direction: column;
 }
 
-/* header */
-
+/* Header */
 header > h1 {
   font-size: 8vw;
   padding-bottom: 0;
   margin: 0;
 }
 
-/* Rainbow */
+/* ==========================================================================
+   Rainbow Section
+   ========================================================================== */
+
 .rainbow-area {
   display: flex;
   flex-direction: column;
@@ -141,7 +187,10 @@ header > h1 {
   background-color: var(--rainbow8);
 }
 
-/* middle content */
+/* ==========================================================================
+   Middle Content
+   ========================================================================== */
+
 .middle-content {
   display: flex;
   flex-direction: row;
@@ -165,7 +214,139 @@ header > h1 {
   font-style: normal;
 }
 
-/* Screens */
+/* ==========================================================================
+   Table Styles
+   ========================================================================== */
+
+.levels-table-section {
+  margin-top: 48px;
+  overflow-x: auto;
+  position: relative;
+}
+
+.levels-table-section h3 {
+  font-family: "Domine", serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  text-align: center;
+  color: var(--onBackground);
+}
+
+.levels-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: var(--background);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.levels-table caption {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.levels-table thead {
+  background: linear-gradient(135deg, var(--rainbow8), var(--rainbow7));
+}
+
+.levels-table th,
+.levels-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--tableBorder);
+}
+
+.levels-table th {
+  font-weight: 600;
+  color: var(--onRainbow);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.levels-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.levels-table tbody tr:hover {
+  background-color: var(--tableHover);
+}
+
+.levels-table tbody tr:nth-child(even) {
+  background-color: var(--tableRowEven);
+}
+
+.levels-table tbody th {
+  font-weight: 700;
+  color: var(--rainbow7);
+  background-color: var(--tableBody);
+  font-size: 1.1rem;
+}
+
+.levels-table tbody td {
+  color: var(--onBackground);
+  line-height: 1.5;
+}
+
+/* Sticky first column */
+.levels-table th:first-child,
+.levels-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background-color: var(--background);
+}
+
+.levels-table thead th:first-child {
+  background: linear-gradient(
+    135deg,
+    var(--rainbow8),
+    var(--rainbow7)
+  ) !important;
+  z-index: 11;
+}
+
+.levels-table tbody th:first-child {
+  background-color: var(--tableBody);
+  color: var(--onTableHeader);
+  z-index: 10;
+}
+
+.levels-table tbody tr:nth-child(even) td:first-child {
+  background-color: var(--background) !important;
+}
+
+.levels-table tbody tr:hover td:first-child {
+  background-color: var(--background) !important;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer > a {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
 
 @media (min-width: 768px) {
   .mobile {
@@ -206,132 +387,11 @@ header > h1 {
     font-size: 2rem;
     line-height: 3rem;
   }
+
   .middle-content > p {
     font-size: 1.5rem;
   }
-}
 
-/* Table Styles */
-.levels-table-section {
-  margin-top: 48px;
-  overflow-x: auto;
-  position: relative;
-}
-
-/* Sticky first column */
-.levels-table th:first-child,
-.levels-table td:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 10;
-  background-color: var(--background);
-}
-
-.levels-table thead th:first-child {
-  background: linear-gradient(
-    135deg,
-    var(--rainbow8),
-    var(--rainbow7)
-  ) !important;
-  z-index: 11;
-}
-
-.levels-table tbody th:first-child {
-  background-color: #eff8f5;
-  color: #0d7478;
-  z-index: 10;
-}
-
-.levels-table tbody tr:nth-child(even) td:first-child {
-  background-color: var(--background) !important;
-}
-
-.levels-table tbody tr:hover td:first-child {
-  background-color: var(--background) !important;
-}
-
-.levels-table-section h3 {
-  font-family: "Domine", serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 32px;
-  text-align: center;
-  color: var(--onBackground);
-}
-
-.levels-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0 auto;
-  background-color: var(--background);
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.levels-table caption {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-.levels-table thead {
-  background: linear-gradient(135deg, var(--rainbow8), var(--rainbow7));
-}
-
-.levels-table th,
-.levels-table td {
-  padding: 16px 20px;
-  text-align: left;
-  border-bottom: 1px solid rgba(148, 210, 189, 0.2);
-}
-
-.levels-table th {
-  font-weight: 600;
-  color: white;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.levels-table tbody tr {
-  transition: background-color 0.2s ease;
-}
-
-.levels-table tbody tr:hover {
-  background-color: rgba(148, 210, 189, 0.1);
-}
-
-.levels-table tbody tr:nth-child(even) {
-  background-color: rgba(148, 210, 189, 0.05);
-}
-
-.levels-table tbody th {
-  font-weight: 700;
-  color: var(--rainbow7);
-  background-color: #eff8f5;
-  font-size: 1.1rem;
-}
-
-.levels-table tbody td {
-  color: var(--onBackground);
-  line-height: 1.5;
-}
-
-/* Screen reader only class */
-.sr-only {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-/* Responsive Table */
-@media (max-width: 768px) {
   .levels-table-section h3 {
     font-size: 2rem;
     margin-bottom: 24px;
@@ -346,9 +406,7 @@ header > h1 {
   .levels-table {
     font-size: 0.85rem;
   }
-}
 
-@media (max-width: 600px) {
   .levels-table {
     display: table;
     overflow-x: auto;
@@ -377,27 +435,15 @@ header > h1 {
   }
 
   .levels-table tbody th:first-child {
-    background-color: #eff8f5;
+    background-color: #eff8f5; /*yeah I know leave it alone */
     z-index: 10;
   }
 }
 
-/* Footer */
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* ==========================================================================
+   Dark Mode
+   ========================================================================== */
 
-footer > a {
-  width: fit-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --onBackground: #fff;
@@ -406,25 +452,27 @@ footer > a {
     --area-padding-mobile: 32px;
 
     --github-button-color: #94d2bd;
+    --onGithubButton: #000;
 
-    --rainbow1: #ae2012;
-    --rainbow2: #bb3e04;
-    --rainbow3: #ca6702;
-    --rainbow4: #ee9b00;
-    --rainbow5: #e9d9a6;
-    --rainbow6: #94d2bd;
-    --rainbow7: #0a9396;
-    --rainbow8: #025f72;
+    --tableBody: #edd1cd;
+    --tableHeader: invert(#0d7478);
+    --onTableHeader: #000;
+    --tableBorder: rgba(148, 210, 189, 0.2);
+    --tableHover: invert(rgba(148, 210, 189, 0.1));
+    --tableRowEven: invert(rgba(148, 210, 189, 0.05));
+
+    --rainbow1: #00d3e3;
+    --rainbow2: #00bce6;
+    --rainbow3: #0794df;
+    --rainbow4: #0061cf;
+    --rainbow5: #142556;
+    --rainbow6: #652c41;
+    --rainbow7: #ca6966;
+    --rainbow8: #e19e8c;
+    --onRainbow: #000;
   }
 
-  img,
-  .rainbow,
-  .levels-table thead {
-    filter: invert(1);
-  }
-
-  .levels-table tbody th:first-child {
-    background-color: #edd1cd;
-    color: #000;
+  img {
+    filter: invert(1); /*yeah I know, fine for now */
   }
 }
