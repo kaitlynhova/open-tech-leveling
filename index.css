@@ -17,31 +17,6 @@
   --rainbow8: #025f72;
 }
 
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --onBackground: #fff;
-    --background: #000;
-    --area-padding: 64px;
-    --area-padding-mobile: 32px;
-
-    --github-button-color: #94d2bd;
-
-    --rainbow1: #ae2012;
-    --rainbow2: #bb3e04;
-    --rainbow3: #ca6702;
-    --rainbow4: #ee9b00;
-    --rainbow5: #e9d9a6;
-    --rainbow6: #94d2bd;
-    --rainbow7: #0a9396;
-    --rainbow8: #025f72;
-  }
-
-  img, .rainbow, .levels-table thead {
-    filter: invert(1);
-  }
-}
-
 a {
   color: var(--onBackground);
   text-decoration: none;
@@ -400,4 +375,34 @@ footer > a {
   align-items: center;
   flex-direction: column;
   gap: 4px;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --onBackground: #fff;
+    --background: #000;
+    --area-padding: 64px;
+    --area-padding-mobile: 32px;
+
+    --github-button-color: #94d2bd;
+
+    --rainbow1: #ae2012;
+    --rainbow2: #bb3e04;
+    --rainbow3: #ca6702;
+    --rainbow4: #ee9b00;
+    --rainbow5: #e9d9a6;
+    --rainbow6: #94d2bd;
+    --rainbow7: #0a9396;
+    --rainbow8: #025f72;
+  }
+
+  img, .rainbow, .levels-table thead {
+    filter: invert(1);
+  }
+
+  .levels-table tbody th:first-child {
+    background-color: #EDD1CD;
+    color: #000;
+  }
 }
